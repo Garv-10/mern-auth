@@ -11,7 +11,7 @@ export default function SignUp() {
         <button type="submit" className="mx-auto my-3 p-2 px-5 border-2 rounded-md bg-slate-700 text-white font-semibold hover:opacity-90 disabled:opacity-80">Sign Up</button>
       </form>
       <div className='flex justify-center items-center flex-col gap-2 mt-5 text-gray-500 text-sm'>
-        <p className='inline'>Already have an account?</p>
+        <p>Already have an account?</p>
         <Link to='/sign-in' className='inline-block'>
           <span className='text-blue-500 hover:underline'>Sign in</span>
         </Link>
