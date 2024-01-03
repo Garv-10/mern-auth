@@ -2,12 +2,14 @@ import { Link, useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import { signInStart, signInFailure, signInSuccess } from '../redux/user/userSlice';
 import { useDispatch, useSelector } from 'react-redux';
+import OAuth from '../components/OAuth';
 
 
 export default function SignIn() {
   const [formData, setFormData] = useState({});
   // const [error, setError] = useState(false);
   // const [loading, setLoading] = useState(false);
+  // const error = false;
   const { loading, error } = useSelector(state => state.user);
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -40,7 +42,7 @@ export default function SignIn() {
       dispatch(signInSuccess(data));
       navigate('/');
     } catch (err) {
-      console.log(err);
+      // console.log(err);
       // setLoading(false);
       // setError(true);
       dispatch(signInFailure(err));
@@ -69,6 +71,7 @@ export default function SignIn() {
           className="mx-auto my-3 p-2 px-5 border-2 rounded-md bg-slate-700 text-white font-semibold hover:opacity-90 disabled:opacity-80">
           {loading ? 'Loading' : 'Sign In'}
         </button>
+        <OAuth />
       </form>
       <div className='flex justify-center items-center flex-col gap-2 mt-5 text-gray-500 text-sm'>
         <p>Dont have an account?</p>
@@ -78,9 +81,8 @@ export default function SignIn() {
           </span>
         </Link>
       </div>
-      <p className='text-red-700 text-center mt-5'>
+      <p className='text-red-700 mt-5 text-center'>
         {error ? error.message || 'Something went wrong!' : ''}
-        Something went wrong!
       </p>
     </div>
   )
