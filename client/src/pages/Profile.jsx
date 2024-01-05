@@ -4,7 +4,7 @@ import { useRef } from 'react';
 import { getDownloadURL, getStorage, ref, uploadBytesResumable } from 'firebase/storage';
 import { app } from '../firebase';
 import { useDispatch } from 'react-redux';
-import { updateUserStart, updateUserFailure, updateUserSuccess } from '../redux/user/userSlice';
+import { updateUserStart, updateUserFailure, updateUserSuccess, deleteUserStart, deleteUserFailure, deleteUserSuccess } from '../redux/user/userSlice';
 
 export default function Profile() {
   const fileRef = useRef(null);
@@ -73,6 +73,25 @@ export default function Profile() {
     }
   };
 
+  const handleDeleteAccount = async () => {
+    try {
+      dispatch(deleteUserStart());
+      const res = await fetch(`/api/user/delete/${currentUser._id}`, {
+        method: 'DELETE',
+      });
+      const data = await res.json();
+      if (data.success === false) {
+        dispatch(deleteUserFailure(data));
+        return;
+      }
+      dispatch(deleteUserSuccess(data));
+    }
+    catch (error) {
+      dispatch(deleteUserFailure(error));
+    }
+
+  };
+
   return (
     <div className='p-3 max-w-lg mx-auto'>
       <h1 className='text-3xl font-semibold text-center my-7'>
@@ -130,7 +149,7 @@ export default function Profile() {
         </button>
       </form>
       <div className='felx justify-between mt-5 text-center'>
-        <span className='text-red-700 cursor-pointer mx-5'>
+        <span onClick={handleDeleteAccount} className='text-red-700 cursor-pointer mx-5'>
           Delete Account
         </span>
         <span className='text-red-700 cursor-pointer mx-5'>
