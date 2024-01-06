@@ -6,6 +6,10 @@ export default function Home() {
       <h1 className='text-3xl font-bold mb-4 text-slate-800'>
         Welcome to my Authentication App!
       </h1>
+      <h3>
+        This is a full stack application with a React front end, a Node.js and
+        Express back end, and a MongoDB database.
+      </h3>
       <p className='mb-4 text-slate-700'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tenetur in facilis repudiandae alias exercitationem numquam. Corrupti, deleniti voluptates. Non, error optio quia dolores aspernatur iste dolorem neque nostrum enim labore voluptate earum distinctio minus, obcaecati consequuntur deleniti. Obcaecati natus optio assumenda esse vitae repellendus perspiciatis vel! Maxime expedita suscipit deserunt!</p>
       <p className='mb-4 text-slate-700'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tenetur in facilis repudiandae alias exercitationem numquam. Corrupti, deleniti voluptates. Non, error optio quia dolores aspernatur iste dolorem neque nostrum enim labore voluptate earum distinctio minus, obcaecati consequuntur deleniti. Obcaecati natus optio assumenda esse vitae repellendus perspiciatis vel! Maxime expedita suscipit deserunt!</p>
       <p className='mb-4 text-slate-700'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tenetur in facilis repudiandae alias exercitationem numquam. Corrupti, deleniti voluptates. Non, error optio quia dolores aspernatur iste dolorem neque nostrum enim labore voluptate earum distinctio minus, obcaecati consequuntur deleniti. Obcaecati natus optio assumenda esse vitae repellendus perspiciatis vel! Maxime expedita suscipit deserunt!</p>
